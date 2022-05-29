@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 21:59:31 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/05/29 10:37:50 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/05/29 10:54:06 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@ void	ft_error(char *error)
 	exit(1);
 }
 
+/* Counts the numbers in the given string
+with getnbrs. Needs to create duplicate because
+getnbrs adds nullbytes to the string */
 size_t	ft_countnbrs(char *str)
 {
 	size_t	nbrs;
@@ -35,6 +38,9 @@ size_t	ft_countnbrs(char *str)
 	return (nbrs);
 }
 
+/*Mallocs and loads the integers from row
+to table. Also checks that the amount of nbs
+match the given argument */
 static void loadrow(char *row, int **table, size_t nbrs)
 {
 	if (ft_countnbrs(row) != nbrs)
@@ -48,7 +54,8 @@ static void loadrow(char *row, int **table, size_t nbrs)
 		*table = *table + 1;
 	}
 }
-
+/* Wrapper for loading the values line
+by line */
 static void loadvalues(int fd, int **table)
 {
 	size_t	numbers;
@@ -68,7 +75,7 @@ static void loadvalues(int fd, int **table)
 		ret = get_next_line(fd, &line);
 	}
 }
-
+/* Handler to load the given map file */
 int	**ft_loadfile(char *file)
 {
 	int 	fd;
