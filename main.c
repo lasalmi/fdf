@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/12 12:35:17 by lasalmi           #+#    #+#             */
-/*   Updated: 2021/12/02 12:35:10 by lasalmi          ###   ########.fr       */
+/*   Created: 2022/05/28 13:14:30 by lasalmi           #+#    #+#             */
+/*   Updated: 2022/05/29 09:13:15 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "fdf.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+static void	ft_usage(void)
 {
-	size_t	i;
-	size_t	j;
+	ft_putstr("Usage: ./fdf <filename>");
+	exit(1);
+}
 
-	i = 0;
-	j = 0;
-	if (needle[i] == '\0')
-		return ((char *)haystack);
-	while (haystack[i] != '\0' && i < len)
-	{
-		while (haystack[i + j] == needle[j] && (i + j) < len)
-		{
-			if (needle[j + 1] == '\0')
-				return ((char *)&haystack[i]);
-			j++;
-		}
-		j = 0;
-		i++;
-	}
-	return (NULL);
+int	main(int argc, char **argv)
+{
+	if (argc != 2)
+		ft_usage();
+	ft_loadfile(*(argv + 1));
+	return (0);
 }

@@ -1,5 +1,6 @@
-SOURCE_FILES =
+SOURCE_FILES = main.c fileloader.c
 CFLAGS = -Wall -Wextra -Werror -g
+LIB_DIR = ./libft
 LIBFLAGS = -lft
 SOURCE_DIR = ./
 SOURCES := $(addprefix $(SOURCE_DIR),$(SOURCE_FILES))
@@ -15,6 +16,7 @@ $(NAME) : $(OBJECTS)
 
 $(OBJECTS) : $(SOURCES)
 	gcc -g -c $(SOURCES)
+	make -C libft/
 
 clean : 
 	rm -f $(OBJECTS) $(LIBOBJECTS)

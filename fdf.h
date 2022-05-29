@@ -10,5 +10,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include "./mlx/mlx.h"
+# include "./libft/libft.h"
 
+void	ft_loadfile(char *file);
 #endif
