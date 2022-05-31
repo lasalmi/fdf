@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 21:59:31 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/05/29 10:54:06 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/05/31 20:39:18 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,4 +89,5 @@ int	**ft_loadfile(char *file)
 	if (!table)
 		ft_error("Malloc failed.");
 	loadvalues(fd, table);
+	return (table);
 }
